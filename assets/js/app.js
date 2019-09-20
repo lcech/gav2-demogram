@@ -200,6 +200,8 @@ generatePushID = (function() {
     console.log("Pushing to Data Layer: " + JSON.stringify(eventData, null, 2));
     dataLayer.push(eventData);
     this.reset();
+    $("#leadForm").hide();
+    $('#thankYou').show();
   });
 
   $(".download").on("click", function(event) {
