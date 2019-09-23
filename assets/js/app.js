@@ -204,6 +204,20 @@ generatePushID = (function() {
     $('#thankYou').show();
   });
 
+  $("#searchForm").on("submit", function(event) {
+    var eventData;
+
+    event.preventDefault();
+
+    eventData = $(this).serializeObject();
+    eventData.event = "search";
+
+    console.log("Pushing to Data Layer: " + JSON.stringify(eventData, null, 2));
+    dataLayer.push(eventData);
+    this.reset();
+    $('#searchResults').show();
+  });
+
   $(".download").on("click", function(event) {
     var $target,
       linkHref,
